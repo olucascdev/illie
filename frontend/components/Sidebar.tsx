@@ -63,19 +63,20 @@ export default function Sidebar() {
     >
       {/* Logo */}
       <div className="px-5 py-5 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div
-            className="w-7 h-7 rounded-lg flex items-center justify-center"
-            style={{ background: 'var(--accent)' }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          <span style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.3px' }}>
-            Illie
-          </span>
-        </div>
+        {/* Light mode logo */}
+        <img
+          src="/logo-light-mode.svg"
+          alt="Illie"
+          className="logo-light"
+          style={{ height: '28px', width: 'auto' }}
+        />
+        {/* Dark mode logo */}
+        <img
+          src="/logo-dark-mode.svg"
+          alt="Illie"
+          className="logo-dark"
+          style={{ height: '28px', width: 'auto' }}
+        />
         <ThemeToggle />
       </div>
 

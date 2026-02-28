@@ -13,12 +13,18 @@ export default async function PipelinePage() {
 
   return (
     <div>
-      <h1 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.5px' }}>
-        Pipeline
-      </h1>
-      <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '4px' }}>
-        Histórico de execuções do Kestra
-      </p>
+      {/* Header */}
+      <div className="flex items-start justify-between mb-2">
+        <div>
+          <h1 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.5px' }}>
+            Pipeline
+          </h1>
+          <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '4px' }}>
+            Histórico de execuções do Kestra
+          </p>
+        </div>
+      
+      </div>
 
       {/* Stats */}
       <div className="grid grid-cols-4 gap-4 mt-8 mb-10">

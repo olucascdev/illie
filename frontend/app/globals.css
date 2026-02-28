@@ -75,6 +75,12 @@
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+  /* Logo theme toggle */
+  .logo-dark  { display: none; }
+  .logo-light { display: block; }
+  html.dark .logo-light { display: none; }
+  html.dark .logo-dark  { display: block; }
 }
 
 @layer utilities {
