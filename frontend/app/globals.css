@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teal: #75B9BE;
+  --color-sage: #A8CCC9;
+  --color-mint: #B3D6C6;
+  --color-lime: #DCEAB2;
+  --color-chartreuse: #C7D66D;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  /* ─── LIGHT MODE (default) ─── */
+  :root {
+    --bg: #ffffff;
+    --bg-secondary: #fbfbfb;
+    --bg-input: #fafafa;
+    --border: #efefef;
+    --border-light: #f5f5f5;
+    --text: #1a1a1a;
+    --text-secondary: #666;
+    --text-muted: #999;
+    --text-faint: #ccc;
+    --accent: #75B9BE;
+    --accent-soft: rgba(117, 185, 190, 0.08);
+    --success: #C7D66D;
+    --success-soft: rgba(199, 214, 109, 0.1);
+    --danger: #c0504d;
+    --danger-soft: #fef2f2;
+    --hover: #fafbfc;
+  }
+
+  /* ─── DARK MODE ─── */
+  html.dark {
+    --bg: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-input: #161616;
+    --border: #1e1e1e;
+    --border-light: #1a1a1a;
+    --text: #e8e8e8;
+    --text-secondary: #999;
+    --text-muted: #666;
+    --text-faint: #333;
+    --accent: #75B9BE;
+    --accent-soft: rgba(117, 185, 190, 0.08);
+    --success: #C7D66D;
+    --success-soft: rgba(199, 214, 109, 0.06);
+    --danger: #e06c75;
+    --danger-soft: rgba(224, 108, 117, 0.08);
+    --hover: #111;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 1.6;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  ::selection { background: rgba(117, 185, 190, 0.2); }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+}
+
+@layer utilities {
+  .status-generated {
+    background: rgba(117, 185, 190, 0.1);
+    color: #5aabad;
+  }
+  html.dark .status-generated {
+    background: rgba(117, 185, 190, 0.1);
+    color: #75B9BE;
+  }
+
+  .status-published {
+    background: rgba(199, 214, 109, 0.12);
+    color: #7a8c3c;
+  }
+  html.dark .status-published {
+    background: rgba(199, 214, 109, 0.1);
+    color: #C7D66D;
+  }
+
+  .status-draft {
+    background: rgba(240, 198, 116, 0.1);
+    color: #b08730;
+  }
+  html.dark .status-draft {
+    background: rgba(240, 198, 116, 0.08);
+    color: #f0c674;
+  }
+
+  .status-error {
+    background: rgba(192, 80, 77, 0.08);
+    color: #c0504d;
+  }
+  html.dark .status-error {
+    background: rgba(224, 108, 117, 0.08);
+    color: #e06c75;
+  }
+
+  .table-row-hover {
+    transition: background 0.12s ease;
+  }
+  .table-row-hover:hover {
+    background: var(--hover);
+  }
+}
