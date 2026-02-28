@@ -23,6 +23,13 @@ export const pipelineRuns = pgTable('pipeline_runs', {
   executedAt: timestamp('executed_at', { withTimezone: true }).defaultNow(),
 });
 
+export const agentConfig = pgTable('agent_config', {
+  id: integer('id').primaryKey().default(1),
+  prompt: text('prompt').notNull(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow(),
+});
+
 export type Post = typeof posts.$inferSelect;
 export type NewPost = typeof posts.$inferInsert;
 export type PipelineRun = typeof pipelineRuns.$inferSelect;
+export type AgentConfig = typeof agentConfig.$inferSelect;

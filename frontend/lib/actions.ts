@@ -1,7 +1,7 @@
 'use server';
 
 import { db } from '@/lib/db';
-import { posts, pipelineRuns } from '@/lib/db/schema';
+import { posts, pipelineRuns, agentConfig } from '@/lib/db/schema';
 import { eq } from 'drizzle-orm';
 import { revalidatePath } from 'next/cache';
 
@@ -43,4 +43,23 @@ export async function deletePost(id: string) {
 
 export async function getPipelineRuns() {
   return db.select().from(pipelineRuns).orderBy(pipelineRuns.executedAt);
+}
+
+// ─── AGENT CONFIG ──────────────────────────────────────────────
+
+export async function getAgentConfig(): Promise<string | null> {
+  const result = await db
+    .select()
+    .from(agentConfig)
+    .where(eq(agentConfig.id, 1))
+    .limit(1);
+  return result[0]?.prompt ?? null;
+}
+
+export async function updateAgentConfig(prompt: string) {
+  await db
+    .update(agentConfig)
+    .set({ prompt, updatedAt: new Date() })
+    .where(eq(agentConfig.id, 1));
+  revalidatePath('/settings');
 }
