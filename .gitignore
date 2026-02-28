@@ -32,3 +32,5 @@ Thumbs.db
 .cursor
 .gemini
 .github
+.agent
+.aios-core
