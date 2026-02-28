@@ -27,9 +27,6 @@ Thumbs.db
 .aios-core/local/
 .claude/settings.local.json
 .aios/install-log.txt
-.agent
-.aios-core
-.antigravity
 .claude
 .codex
 .cursor
